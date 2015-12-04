@@ -1,2 +1,2 @@
 # QRCard
-Bussiness Card with QRcode.
+Bussiness Card with QRCode.
