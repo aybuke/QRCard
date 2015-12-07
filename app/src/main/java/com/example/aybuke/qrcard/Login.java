@@ -1,11 +1,14 @@
 package com.example.aybuke.qrcard;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 
 public class Login extends AppCompatActivity {
 
@@ -13,6 +16,14 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        CheckBox vip = (CheckBox) findViewById(R.id.checkBox);
+        vip.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) { findViewById(R.id.editText3).setVisibility( View.VISIBLE); }
+                else {findViewById(R.id.editText3).setVisibility( View.INVISIBLE );
+            }
+        });
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -24,6 +35,17 @@ public class Login extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    public void girisYap(View v){
+
+
+    }
+
+    public void kayitOl(View v){
+        Intent x = new Intent(this, Registeration.class);
+        startActivity(x);
+
     }
 
 }

@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">QRCard</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_registeration">Registeration</string>
+    <string name="title_activity_qr_create">qr_create</string>
+    <string name="title_activity_qr_read">qr_read</string>
+    <string name="title_activity_qr_code_page">qr_code_page</string>
 </resources>
