@@ -21,7 +21,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) { findViewById(R.id.editText3).setVisibility( View.VISIBLE); }
-                else {findViewById(R.id.editText3).setVisibility( View.INVISIBLE );
+                else {findViewById(R.id.editText3).setVisibility( View.INVISIBLE );}
             }
         });
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
