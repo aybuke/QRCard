@@ -38,7 +38,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void girisYap(View v){
-
+        
 
     }
 
