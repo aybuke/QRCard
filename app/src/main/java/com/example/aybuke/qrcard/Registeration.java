@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -37,7 +38,7 @@ public class Registeration extends AppCompatActivity {
 	        EditText adi = (EditText) findViewById(R.id.editText4);
             EditText mail = (EditText) findViewById(R.id.editText5);
 	        EditText parola = (EditText) findViewById(R.id.editText6);
-	        CheckBox vip = (CheckBox) findViewById(R.id.checkBox);
+	        CheckBox vip = (CheckBox) findViewById(R.id.checkBox2);
 	
 	        CardDB kayit = new CardDB(getApplicationContext());
 	        SQLiteDatabase veritabani = kayit.getWritableDatabase();
@@ -45,11 +46,13 @@ public class Registeration extends AppCompatActivity {
 
 		satir.put("name", adi.getText().toString());
 		satir.put("mail", mail.getText().toString());
-		satir.put("parola", parola.getText().toString());
+		satir.put("passwd", parola.getText().toString());
 
 		if (vip.isChecked()) {
 			Random r = new Random();
-			satir.put("vip", r.nextInt(90000) + 10000);
+			int vipkod = r.nextInt(90000) + 10000;
+			satir.put("vip", vipkod);
+			Toast.makeText(getApplicationContext(), "VIP kodunuz: " + vipkod, Toast.LENGTH_LONG).show();
 		}
 
 	veritabani.insert("cards", null, satir);

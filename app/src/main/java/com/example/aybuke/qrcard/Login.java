@@ -51,11 +51,11 @@ public class Login extends AppCompatActivity {
         SQLiteDatabase veritabani = giris.getReadableDatabase();
 
         String[] sutunlar = {"name", "passwd", "vip"};
-        String vipcode = vip.getText().toString();
+        String vipcode = vipid.getText().toString();
         if (vipcode.isEmpty()) {
             vipcode = "0";
         }
-        String[] veriler = {name.getText().toString(), pass.getText().toString(), vip.getText().toString()};
+        String[] veriler = {name.getText().toString(), pass.getText().toString(), vipcode};
         Cursor c = veritabani.query("cards", sutunlar, "name=? AND passwd=? AND vip=?", veriler, null, null, null);
         if (c.getCount() == 0) {
             Toast.makeText(getApplicationContext(), "Bilgileriniz hatalı, lütfen tekrar deneyiniz.", Toast.LENGTH_LONG).show();
