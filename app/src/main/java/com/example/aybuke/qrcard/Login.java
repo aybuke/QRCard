@@ -62,8 +62,8 @@ public class Login extends AppCompatActivity {
         }
 
         else {
-            Intent giris = new Intent(this, MainActivity.class);
-            startActivity(giris);
+            Intent anasayfa = new Intent(this, MainActivity.class);
+            startActivity(anasayfa);
         }
     }
 
