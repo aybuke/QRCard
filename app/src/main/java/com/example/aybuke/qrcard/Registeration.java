@@ -35,7 +35,7 @@ public class Registeration extends AppCompatActivity {
  
 	public void KayıtOlDB(View v){
 	        EditText adi = (EditText) findViewById(R.id.editText4);
-        EditText mail = (EditText) findViewById(R.id.editText5);
+            EditText mail = (EditText) findViewById(R.id.editText5);
 	        EditText parola = (EditText) findViewById(R.id.editText6);
 	        CheckBox vip = (CheckBox) findViewById(R.id.checkBox);
 	
