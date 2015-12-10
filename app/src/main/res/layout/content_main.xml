@@ -13,16 +13,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="QRCode Oluştur"
-        android:layout_above="@+id/buttonb5"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="57dp" />
+        android:layout_marginTop="168dp"
+        android:id="@+id/button3" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="QRCode Oku"
         android:id="@+id/buttonb5"
-        android:layout_marginBottom="186dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/button3"
+        android:layout_alignEnd="@+id/button3"
+        android:layout_alignLeft="@+id/button3"
+        android:layout_alignStart="@+id/button3" />
 </RelativeLayout>
