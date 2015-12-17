@@ -16,7 +16,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="168dp"
-        android:id="@+id/button3" />
+        android:id="@+id/button3"
+        android:onClick="qrOlustur" />
 
     <Button
         android:layout_width="wrap_content"
@@ -27,5 +28,6 @@
         android:layout_alignRight="@+id/button3"
         android:layout_alignEnd="@+id/button3"
         android:layout_alignLeft="@+id/button3"
-        android:layout_alignStart="@+id/button3" />
+        android:layout_alignStart="@+id/button3"
+        android:onClick="qrOku" />
 </RelativeLayout>
