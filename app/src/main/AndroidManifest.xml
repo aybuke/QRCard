@@ -38,11 +38,6 @@
             android:label="@string/title_activity_qr_read"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
-        <activity
-            android:name=".qr_code_page"
-            android:label="@string/title_activity_qr_code_page"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
     </application>
 
 </manifest>

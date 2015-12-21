@@ -58,5 +58,6 @@
         android:id="@+id/button4"
         android:layout_below="@+id/editText11"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="63dp" />
+        android:layout_marginTop="63dp"
+        android:onClick="qrcodeolustur" />
 </RelativeLayout>
