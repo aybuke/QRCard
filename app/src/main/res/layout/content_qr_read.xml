@@ -9,5 +9,51 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_qr_read" tools:context="com.example.aybuke.qrcard.qr_read">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/textView2"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="53dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/textView4"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="53dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/textView5"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="55dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/textView6"
+        android:layout_below="@+id/textView5"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="51dp" />
 </RelativeLayout>
