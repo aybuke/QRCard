@@ -1,6 +1,7 @@
 package com.example.aybuke.qrcard;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -24,8 +25,11 @@ public class Login extends AppCompatActivity {
         vip.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) { findViewById(R.id.editText3).setVisibility( View.VISIBLE); }
-                else {findViewById(R.id.editText3).setVisibility( View.INVISIBLE );}
+                if (isChecked) {
+                    findViewById(R.id.editText3).setVisibility(View.VISIBLE);
+                } else {
+                    findViewById(R.id.editText3).setVisibility(View.INVISIBLE);
+                }
             }
         });
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -39,6 +43,12 @@ public class Login extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        prefs = getSharedPreferences("qrcard", MODE_PRIVATE);
+        if (prefs.getBoolean("giris", false)) {
+            Intent m = new Intent(this, MainActivity.class);
+            startActivity(m);
+        }
     }
 
     public void girisYap(View v){
@@ -62,6 +72,8 @@ public class Login extends AppCompatActivity {
         }
 
         else {
+            prefs.edit().putBoolean("giris", true).apply();
+            prefs.edit().putBoolean("vip", !vipcode.equals("0")).apply();
             Intent anasayfa = new Intent(this, MainActivity.class);
             startActivity(anasayfa);
         }
@@ -72,5 +84,7 @@ public class Login extends AppCompatActivity {
         startActivity(x);
 
     }
+
+    SharedPreferences prefs;
 
 }
