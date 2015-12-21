@@ -1,7 +1,8 @@
 package com.example.aybuke.qrcard;
-  
+
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -17,32 +18,38 @@ import java.util.Random;
 
 public class Registeration extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registeration);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_registeration);
+		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+		setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-    }
- 
+		FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+		fab.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+						.setAction("Action", null).show();
+			}
+		});
+
+		prefs = getSharedPreferences("qrcard", MODE_PRIVATE);
+		if (prefs.getBoolean("giris", false)) {
+			Intent m = new Intent(this, MainActivity.class);
+			startActivity(m);
+		}
+	}
+
 	public void KayıtOlDB(View v){
-	        EditText adi = (EditText) findViewById(R.id.editText4);
-            EditText mail = (EditText) findViewById(R.id.editText5);
-	        EditText parola = (EditText) findViewById(R.id.editText6);
-	        CheckBox vip = (CheckBox) findViewById(R.id.checkBox2);
-	
-	        CardDB kayit = new CardDB(getApplicationContext());
-	        SQLiteDatabase veritabani = kayit.getWritableDatabase();
-	        ContentValues satir = new ContentValues();
+		EditText adi = (EditText) findViewById(R.id.editText4);
+		EditText mail = (EditText) findViewById(R.id.editText5);
+		EditText parola = (EditText) findViewById(R.id.editText6);
+		CheckBox vip = (CheckBox) findViewById(R.id.checkBox2);
+
+		CardDB kayit = new CardDB(getApplicationContext());
+		SQLiteDatabase veritabani = kayit.getWritableDatabase();
+		ContentValues satir = new ContentValues();
 
 		satir.put("name", adi.getText().toString());
 		satir.put("mail", mail.getText().toString());
@@ -55,8 +62,12 @@ public class Registeration extends AppCompatActivity {
 			Toast.makeText(getApplicationContext(), "VIP kodunuz: " + vipkod, Toast.LENGTH_LONG).show();
 		}
 
-	veritabani.insert("cards", null, satir);
-	Intent main = new Intent(this, MainActivity.class);
-	startActivity(main);
+		veritabani.insert("cards", null, satir);
+		prefs.edit().putBoolean("giris", true).apply();
+		prefs.edit().putBoolean("vip", !vip.equals("0")).apply();
+		Intent main = new Intent(this, MainActivity.class);
+		startActivity(main);
 	}
+
+	SharedPreferences prefs;
 }
