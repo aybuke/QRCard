@@ -31,6 +31,7 @@ public class qr_create extends AppCompatActivity {
             }
         });
 
+        prefs = getSharedPreferences("qrcard", MODE_PRIVATE);
         if (!prefs.getBoolean("vip", false)) {
             findViewById(R.id.editText10).setVisibility(View.INVISIBLE);
             findViewById(R.id.editText11).setVisibility(View.INVISIBLE);
