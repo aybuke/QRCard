@@ -1,5 +1,6 @@
 package com.example.aybuke.qrcard;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -29,6 +30,11 @@ public class qr_create extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        if (!prefs.getBoolean("vip", false)) {
+            findViewById(R.id.editText10).setVisibility(View.INVISIBLE);
+            findViewById(R.id.editText11).setVisibility(View.INVISIBLE);
+        }
     }
 
     public void qrcodeolustur(View v){
@@ -49,5 +55,7 @@ public class qr_create extends AppCompatActivity {
 
 
     }
+
+    SharedPreferences prefs;
 
 }
